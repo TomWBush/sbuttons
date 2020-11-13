@@ -259,7 +259,7 @@ $(document).ready(function () {
             },
             {
               text: "loading right",
-              classes: "spin  right red-btn",
+              classes: "spin right red-btn",
             },
             {
               text: "loading right",
@@ -803,8 +803,11 @@ $(document).ready(function () {
         var totalClasses = `${defaultClass} ${button.classes}`,
           totalWrittenClasses = `.${defaultClass} .${button.classes}`;
         if (thisButtonClasses.length) {
-          totalClasses += ` ${thisButtonClasses}`;
-          totalWrittenClasses += ` .${thisButtonClasses}`;
+          classes = thisButtonClasses.trim().split(/\s+/);
+          for (let k = 0; k < classes.length; k++) {
+            totalClasses += ` ${classes[k]}`;
+            totalWrittenClasses += ` .${classes[k]}`;
+          }
         }
         // add normal button grid for button
         normalButtonsGrid.append(
